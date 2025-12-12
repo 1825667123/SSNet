@@ -1,0 +1,4 @@
+maximum iterations for BCGS
+1000
+maximum residual error for BCGS
+5e-5
