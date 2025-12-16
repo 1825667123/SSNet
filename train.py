@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torch.optim.lr_scheduler import StepLR  # 仅新增这行
 from torch.utils.data import DataLoader, TensorDataset, random_split
 import os
 import matplotlib.pyplot as plt
@@ -58,6 +59,14 @@ print(f"模型已初始化，使用设备: {device}")
 criterion = ComplexMSELoss()
 optimizer = optim.Adam(model.unet.parameters(), lr=lr)
 
+# ======== 仅新增：学习率调度器初始化 ========
+scheduler = StepLR(
+    optimizer,
+    step_size=20,  # 每20个epoch学习率减半
+    gamma=0.5,     # 衰减系数
+    verbose=True   # 打印学习率更新日志
+)
+
 # ============================== 训练循环 =============================
 print("开始训练...")
 epoch_losses = []
@@ -88,17 +97,20 @@ for epoch in range(num_epochs):
         total_loss += loss.item()
         step_losses.append(loss.item())
 
-        # 打印中间结果
+        # ======== 仅修改：打印时增加学习率 ========
         if (i + 1) % 10 == 0:
-            print(f'Epoch [{epoch + 1}/{num_epochs}], Step [{i + 1}/{len(dataloader)}], Loss: {loss.item():.4f}')
+            current_lr = optimizer.param_groups[0]['lr']
+            print(f'Epoch [{epoch + 1}/{num_epochs}], Step [{i + 1}/{len(dataloader)}], Loss: {loss.item():.4f}, LR: {current_lr:.6f}')
 
     # 记录每轮平均损失
     avg_loss = total_loss / len(dataloader)
     epoch_losses.append(avg_loss)
     print(f'Epoch [{epoch + 1}/{num_epochs}], 平均损失: {avg_loss:.4f}')
 
-# ============================== 保存模型 =============================
+    # ======== 仅新增：每个epoch结束后更新学习率 ========
+    scheduler.step()
 
+# ============================== 保存模型 =============================
 torch.save(model.state_dict(), 'output/ssnet_k2etot_model.pth')
 print("k→Etot模型已保存至 output/ssnet_k2etot_model.pth")
 

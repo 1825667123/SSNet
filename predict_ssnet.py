@@ -6,6 +6,7 @@ from Read_H5 import SSNetHDF5Dataset
 
 TARGET_SCT_NUM = 1234  # 要预测的散射体编号（1234→Sct1234）
 MODEL_PATH = "output/ssnet_k2etot_model.pth"
+MODEL_PATH = "output/unet_complex_model.pth"
 XKAI_H5_PATH = "./output/hdf5_data/xkai_all.h5"
 ETOT_H5_PATH = "./output/hdf5_data/etot_all.h5"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
