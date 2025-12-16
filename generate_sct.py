@@ -159,7 +159,7 @@ def generate_scatter(
 
 if __name__ == "__main__":
     os.makedirs("output", exist_ok=True)
-    num_runs = 2890
+    num_runs = 3000
     last_grid = None
     last_scatterers = None
     last_index = 0
