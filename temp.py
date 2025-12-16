@@ -23,7 +23,7 @@ class ComplexMSELoss(nn.Module):
 os.makedirs('output', exist_ok=True)
 
 # ============================== 续训配置 =============================
-MODEL_PATH = 'output/ssnet_model.pth'
+MODEL_PATH = "output/ssnet_k2etot_model.pth"
 LOSS_RECORD_PATH = 'output/loss_records.pkl'  # 保存损失记录的文件
 RESUME_TRAINING = True  # 是否开启断点续训
 

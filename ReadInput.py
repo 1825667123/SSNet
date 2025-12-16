@@ -103,10 +103,10 @@ def Read_Input(scatter_file=None):
     gv.scatsigma = np.full([gv.mz, gv.mx], gv.xsig, dtype=float)
     gv.scatmur = np.full([gv.mz, gv.mx], gv.ttmiur, dtype=float)
 
-    # 获取最新的散射体网格文件
+    # 获取最新散射体网格文件
     if scatter_file is None:
         scatter_file = get_latest_scatter_file()
-    print(f"正在读取散射体文件: {scatter_file}")
+    print(f"scatter_file: {scatter_file}")
 
     # 逐个网格点读取参数
     with open(scatter_file, 'r') as fid:
