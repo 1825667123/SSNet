@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="TEST" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="TEST" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote /home/guanxin/.conda/envs/SS (sftp://guanxin@10.10.3.24:23135null)" project-jdk-type="Python SDK" />
 </project>

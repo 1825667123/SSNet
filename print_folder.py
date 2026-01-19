@@ -16,6 +16,7 @@ def print_directory_tree(root_path, prefix=""):
 
     # 检查是否是目录
     if not os.path.isdir(root_path):
+
         print(f"错误: '{root_path}' 不是一个目录")
         return
 

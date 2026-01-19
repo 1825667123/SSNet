@@ -64,7 +64,6 @@ scheduler = StepLR(
     optimizer,
     step_size=20,  # 每20个epoch学习率减半
     gamma=0.5,     # 衰减系数
-    verbose=True   # 打印学习率更新日志
 )
 
 # ============================== 训练循环 =============================
@@ -134,7 +133,6 @@ plt.title('Average Loss per Epoch (k→Etot)')
 plt.legend()
 
 plt.tight_layout()
-# 重命名损失曲线，避免覆盖
 plt.savefig('output/loss_curve_k2etot.png')
 print("k→Etot损失曲线已保存至 output/loss_curve_k2etot.png")
 plt.show()
