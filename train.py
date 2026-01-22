@@ -29,7 +29,7 @@ nfreq = temp_model.integral_kernel.nfreq
 mz, mx = temp_model.integral_kernel.mz, temp_model.integral_kernel.mx
 print(f"从模型获取到的维度信息: nfreq={nfreq}, mz={mz}, mx={mx}")
 
-batch_size = 10
+batch_size = 40
 num_epochs = 80
 lr = 0.001
 

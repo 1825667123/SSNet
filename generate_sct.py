@@ -137,7 +137,7 @@ def generate_scatter(
     print(f"网格参数已保存至: {save_path}")
 
     # 2. 保存Xkai文件
-    output_dir = 'output/Xkai'
+    output_dir = 'output/xkai'
     os.makedirs(output_dir, exist_ok=True)
     for ifre in range(NFREQ):
         # 计算当前频率的xkai
