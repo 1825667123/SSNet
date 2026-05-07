@@ -1,0 +1,10 @@
+output/*.pth
+output/*.npy
+output/hdf5_data/
+output/Einc/
+output/Etot/
+output/xkai/
+output/Scatterer/
+__pycache__/
+*.pyc
+.idea/
